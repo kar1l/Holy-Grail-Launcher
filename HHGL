@@ -1,0 +1,66 @@
+import os
+import webbrowser
+
+def main():
+    scripts = {
+        "Holy Grail": "",
+        "Holy Grail 2": "",
+        "Holy Grail DUELS": "https://raw.githubusercontent.com/kar1l/Holy-Grail-DUELS/refs/heads/main/HHGD",
+        "Holy Grail AFK": ""
+    }
+
+    scriptItems = list(scripts.items())
+
+    while True:
+        print("\n" + "="*30)
+        print("    HOLY GRAIL LAUNCHER")
+        print("="*30)
+        
+        for i, (name, link) in enumerate(scriptItems, 1):
+            print(f"[{i}] {name}")
+            
+        print("[0] Exit")
+        print("="*30)
+        
+        try:
+            choice = input("\nEnter the number you want to launch: ").strip()
+            
+            if not choice:
+                continue
+                
+            choice = int(choice)
+            
+            if choice == 0:
+                print("\nExiting Launcher...")
+                break
+                
+            if 1 <= choice <= len(scriptItems):
+                selectedName, selectedLink = scriptItems[choice - 1]
+                
+                if not selectedLink:
+                    print(f"\n[-] No link provided for '{selectedName}'.")
+                    continue
+                
+                try:
+                    import urllib.request
+                    print("    Downloading script...")
+                    response = urllib.request.urlopen(selectedLink)
+                    script_code = response.read().decode('utf-8')
+                    
+                    print("    Running script...\n")
+                    # Execute the downloaded script
+                    exec(script_code, {'__name__': '__main__'})
+                    print("\n[+] Script finished successfully.")
+                except Exception as e:
+                    print(f"\n[-] Failed to run script: {e}")
+                
+            else:
+                print("\n[-] Please select a valid number.")
+                
+        except ValueError:
+            print("\n[-] Please enter a valid number (e.g. 1, 2, 3).")
+            
+        input("\nPress Enter to continue...")
+
+if __name__ == "__main__":
+    main()
