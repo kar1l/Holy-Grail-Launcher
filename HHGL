@@ -3,10 +3,11 @@ import webbrowser
 
 def main():
     scripts = {
-        "Holy Grail": "",
-        "Holy Grail 2": "",
+        "Holy Grail": "https://raw.githubusercontent.com/kar1l/Holy-Grail/refs/heads/main/HHG",
+        "Holy Grail 2": "https://raw.githubusercontent.com/kar1l/Holy-Grail-2/refs/heads/main/HHG2",
+        "Holy Grail C2T": "https://raw.githubusercontent.com/kar1l/Holy-Grail-C2T/refs/heads/main/HHGC2T",
         "Holy Grail DUELS": "https://raw.githubusercontent.com/kar1l/Holy-Grail-DUELS/refs/heads/main/HHGD",
-        "Holy Grail AFK": ""
+        "Holy Grail AFK": "https://raw.githubusercontent.com/kar1l/Holy-Grail-AFK/refs/heads/main/HHGA"
     }
 
     scriptItems = list(scripts.items())
